@@ -36,6 +36,7 @@ class Consumer:
         while 1:
             event = self.q.get()
             print(event)
+            print("Consumer")
             self.process(event)
     
 
