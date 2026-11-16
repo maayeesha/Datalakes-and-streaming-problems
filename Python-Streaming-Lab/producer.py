@@ -42,7 +42,8 @@ class CSVProducer:
             reader = csv.reader(csvfile)
             for row in reader:
                 print(row)
-
+                self.q.put(row)
+                time.sleep(self.delay)
 
 
 # Debugging test

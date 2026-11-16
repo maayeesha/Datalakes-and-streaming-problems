@@ -21,6 +21,7 @@ class Consumer:
         - Initialize any state variables you may want later,
           e.g. a running total for stateful computations.
         """
+        self.q = q
         
 
     def start(self):
@@ -32,6 +33,10 @@ class Consumer:
         - Print the event received.
         - Pass it to the process() function.
         """
+        while 1:
+            event = self.q.get()
+            print(event)
+            self.process(event)
     
 
     def process(self, event):
@@ -42,7 +47,10 @@ class Consumer:
         - Implement optional filtering conditions.
         - Update any state (example: running total).
         """
-   
+        time.sleep(1)
+        tofloat = float(event[2])
+        print(f"Processed event with amount:{tofloat}")
+
 
 # Debugging test
 
