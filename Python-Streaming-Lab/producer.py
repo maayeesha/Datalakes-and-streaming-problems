@@ -40,6 +40,7 @@ class CSVProducer:
         """
         with open(self.csv_path, newline='') as csvfile:
             reader = csv.reader(csvfile)
+            next(reader, None)
             for row in reader:
                 print(row)
                 self.q.put(row)

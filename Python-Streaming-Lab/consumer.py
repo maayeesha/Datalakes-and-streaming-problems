@@ -22,7 +22,7 @@ class Consumer:
           e.g. a running total for stateful computations.
         """
         self.q = q
-        
+
 
     def start(self):
         """
@@ -49,8 +49,8 @@ class Consumer:
         - Update any state (example: running total).
         """
         time.sleep(1)
-        tofloat = float(event[2])
-        print(f"Processed event with amount:{tofloat}")
+        event[2] = float(event[2])
+        print(f"Processed event with amount:{event[2]}")
 
 
 # Debugging test
@@ -61,6 +61,7 @@ if __name__ == "__main__":
 
     Note: It will block waiting for messages since no producer is running.
     """
+
     q = Queue()
     consumer = Consumer(q)
     consumer.start()

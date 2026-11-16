@@ -32,6 +32,10 @@ def main():
     thread_p.start()
     thread_c.start()
 
+    thread_p.join()
+    shared_queue.put(None)  #exitting
+    thread_c.join()
+
 if __name__ == "__main__":
     print("Starting the Python Streaming Pipeline")
     main()
